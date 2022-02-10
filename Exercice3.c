@@ -1,16 +1,28 @@
 #include <stdio.h>
 #include <string.h>
- 
-int main(int agrc, char *agrv[])
-{
-    int a [3] [4] = {
-        {0, 1, 2, 3},
-        {4, 5, 6, 7},
-        {8, 9, 10, 11}
-    };
-    int value;
 
-    value = a[3][1];
-    printf("Value = %i\n", value);
-    printf(a)
+int main(int ac, char **av)
+{
+    char tab[4][100];
+    int i = 0;
+    int j = 0;
+
+    if (ac < 3)
+    {
+        printf("USAGE : a.exe [str1] [str2] ...\n");
+    }
+    else
+    {
+        while (i < ac)
+        {
+            for (j = 0; j < strlen(av[i]); j++)
+            {
+                tab[i][j] = av[i][j];
+            }
+            tab[i][j] = '\0';
+            printf("%s\n", tab[i]);
+            i++;
+        }
+    }
+    return 0;
 }
